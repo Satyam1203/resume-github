@@ -4,6 +4,8 @@ import { useQuery } from "@apollo/client";
 import { PUBLIC_USER_DETAILS } from "../queries/details";
 
 import Overview from "./Overview";
+import Stats from "./Stats";
+import Repositories from './Repositories';
 
 const Main = styled.div`
   color: #333;
@@ -11,19 +13,23 @@ const Main = styled.div`
   margin: 1rem auto;
   min-height: 90vh;
   box-shadow: 1px 2px 3px 2px grey;
-  padding: 1rem 2rem;
+  padding: 2rem;
+  text-align: left;
+  // background: lightblue;
 `;
 
 function Resume() {
-  const { loading, error, data } = useQuery(PUBLIC_USER_DETAILS, {
-    variables: { username: "Satyam1203" },
-  });
-  if (loading) return <p>Loading ...</p>;
-  if(error) return <p>Error{console.log(error)}</p>;
+  // const { loading, error, data } = useQuery(PUBLIC_USER_DETAILS, {
+  //   variables: { username: "Satyam1203" },
+  // });
+  // if (loading) return <p>Loading ...</p>;
+  // if(error) return <p>Error{console.log(error)}</p>;
   return (
     <Main>
-      {console.log(data)}
+      {/* {console.log(data)} */}
       <Overview />
+      <Stats />
+      <Repositories />
     </Main>
   );
 }
