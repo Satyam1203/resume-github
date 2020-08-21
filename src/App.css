@@ -1,5 +1,7 @@
 :root{
   --color: #6C63FF;
+  --lightgrey: #aaa;
+  --darkgrey: #555;
 }
 
 .App {
