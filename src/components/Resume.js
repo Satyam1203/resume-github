@@ -6,6 +6,7 @@ import { PUBLIC_USER_DETAILS } from "../queries/details";
 import Overview from "./Overview";
 import Stats from "./Stats";
 import Repositories from './Repositories';
+import Contributions from './Contributions';
 
 const Main = styled.div`
   color: #333;
@@ -19,17 +20,18 @@ const Main = styled.div`
 `;
 
 function Resume() {
-  // const { loading, error, data } = useQuery(PUBLIC_USER_DETAILS, {
-  //   variables: { username: "Satyam1203" },
-  // });
-  // if (loading) return <p>Loading ...</p>;
-  // if(error) return <p>Error{console.log(error)}</p>;
+  const { loading, error, data } = useQuery(PUBLIC_USER_DETAILS, {
+    variables: { username: "satyam1203" },
+  });
+  if (loading) return <p>Loading ...</p>;
+  if(error) return <p>Error{console.log(error)}</p>;
   return (
     <Main>
-      {/* {console.log(data)} */}
+      {console.log(data)}
       <Overview />
       <Stats />
       <Repositories />
+      <Contributions />
     </Main>
   );
 }

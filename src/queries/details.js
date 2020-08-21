@@ -60,6 +60,7 @@ export const PUBLIC_USER_DETAILS = gql`
                 name
               }
             }
+            forkCount
           }
         }
       }
@@ -67,45 +68,41 @@ export const PUBLIC_USER_DETAILS = gql`
         orderBy: { field: STARGAZERS, direction: DESC }
         first: 5
         ownerAffiliations: OWNER
+        privacy: PUBLIC
       ) {
         nodes {
           name
           diskUsage
           nameWithOwner
-        }
-        totalCount
-      }
-      repositoriesContributedTo(
-        first: 5
-        includeUserRepositories: true
-        orderBy: { field: STARGAZERS, direction: DESC }
-        contributionTypes: PULL_REQUEST
-      ) {
-        totalCount
-        nodes {
-          homepageUrl
-          owner {
-            ... on User {
-              name
-            }
+          stargazers {
+            totalCount
           }
-          nameWithOwner
-          description
         }
+        totalCount
       }
       contributionsCollection {
         totalCommitContributions
         totalIssueContributions
         totalPullRequestContributions
-        pullRequestContributions(orderBy: { direction: DESC }, first: 5) {
-          totalCount
-          nodes {
-            pullRequest {
-              repository {
-                nameWithOwner
+        pullRequestContributionsByRepository(maxRepositories: 5) {
+          repository {
+            description
+            nameWithOwner
+          }
+          contributions(orderBy: { direction: ASC }, first: 5) {
+            totalCount
+            nodes {
+              pullRequest {
+                commits {
+                  totalCount
+                }
               }
             }
           }
+        }
+        totalRepositoriesWithContributedPullRequests
+        contributionCalendar {
+          totalContributions
         }
       }
     }

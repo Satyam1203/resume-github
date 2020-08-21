@@ -7,8 +7,8 @@ const OverviewWrapper = styled.div`
   text-align: left;
   padding-bottom: 10px;
   .user {
-    h2{
-      font-family: 'Noticia Text', serif;
+    h2 {
+      font-family: "Noticia Text", serif;
       font-style: italic;
       color: #333;
     }
@@ -19,6 +19,13 @@ const OverviewWrapper = styled.div`
     }
     div {
       line-height: 24px;
+    }
+    .location {
+      font-size: 14px;
+    }
+    .raleway {
+      font-family: "Raleway", serif;
+      font-weight: 600;
     }
   }
   .avatar {
@@ -37,8 +44,8 @@ function Overview() {
         <h2>Satyam Lachhwani</h2>
         <p>@Satyam1203</p>
         <div>Developer</div>
-        <div>From Raipur</div>
-        <div>On Github since 2017</div>
+        <div className="location raleway">From Raipur</div>
+        <div className="raleway">On Github since May, 2017</div>
       </div>
       <div className="avatar">
         <img

@@ -5,7 +5,7 @@ import { Wrapper } from "./styles";
 function Repositories() {
   return (
     <Wrapper>
-      <h2>Pinned Repositories</h2>
+      <h2>Top Repositories</h2>
       <div style={{margin: '1rem 0 0 1rem'}}>
         <Repo />
         <Repo />

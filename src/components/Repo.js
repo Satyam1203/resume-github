@@ -16,20 +16,23 @@ const Repository = styled.div`
     display: flex;
     align-items: center;
     > div {
-      margin-left: 20px;
-      .material-icons {
-        font-size: 18px;
+      margin-left: 16px;
+      .fas {
+        font-size: 14px;
+        margin-left: 3px;
+      }
+      .fa-star {
         color: #f4c724;
       }
     }
   }
   .name {
     font-size: 20px;
-    margin-bottom: 4px;
   }
 `;
 
 const Languages = styled.div`
+  margin: 6px 0;
   display: flex;
   flex-wrap: wrap;
   .language {
@@ -54,7 +57,10 @@ function Repo() {
             <div className="name">satyam1203/namename</div>
           </a>
           <div>
-            3 <span className="material-icons">star</span>
+            3 <i className="fas fa-star"></i>
+          </div>
+          <div>
+            3 <i className="fas fa-code-branch"></i>
           </div>
         </div>
         <div>

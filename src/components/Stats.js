@@ -24,6 +24,7 @@ function Stats() {
           <li className="count-stats">2 followers</li>
           <li className="count-stats">3 following</li>
           <li className="count-stats">30 Public Repositories</li>
+          <li className="count-stats">103 Commits</li>
           <li className="count-stats">3 Pull Requests</li>
           <li className="count-stats">0 Issues</li>
           <li className="count-stats">0 Packages</li>
