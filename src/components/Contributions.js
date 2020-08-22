@@ -17,7 +17,7 @@ function Contributions({ repoList, prCount }) {
           />
         ))}
       </div>
-      {prCount - 5 > 0 ? <div>and {prCount} more...</div> : null}
+      {prCount - 5 > 0 ? <div>and {prCount-5} more...</div> : null}
     </Wrapper>
   );
 }

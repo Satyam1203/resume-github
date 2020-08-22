@@ -67,10 +67,15 @@ function Stats({
       </Statistics>
       <p>
         I'm a motivated Github user, for more details about me, visit{" "}
-        <a href={websiteUrl} target="_blank" rel="noopener noreferrer">
-          this
-        </a>{" "}
-        page and my Github Profile{" "}
+        {websiteUrl ? (
+          <>
+            <a href={websiteUrl} target="_blank" rel="noopener noreferrer">
+              this
+            </a>{" "}
+            page and{" "}
+          </>
+        ) : null}
+        my Github Profile{" "}
         <a href={githubUrl} target="_blank" rel="noopener noreferrer">
           here.
         </a>

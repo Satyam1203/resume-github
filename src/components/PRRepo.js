@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const PRWrapper = styled.div`
-  margin-top: 16px;
-  a{
+  margin: 16px 0;
+  a {
     text-decoration: none;
     color: var(--repoTitleColor);
   }
@@ -18,7 +18,7 @@ const PRWrapper = styled.div`
 
 function PRRepo({ repository, contributions }) {
   let commits = 0;
-  contributions.nodes.forEach(node => {
+  contributions.nodes.forEach((node) => {
     commits += node.pullRequest.commits.totalCount;
   });
   return (
@@ -28,8 +28,13 @@ function PRRepo({ repository, contributions }) {
           {repository.nameWithOwner}
         </a>
       </div>
-      <ul className="description"> <li>{repository.description}</li>
-      <li className="stats">Made {commits} commit(s) in {contributions.totalCount} Pull Request(s).</li>
+      <ul className="description">
+        {" "}
+        {repository.description ? <li>{repository.description}</li> : null}
+        <li className="stats">
+          Made {commits} commit(s) in {contributions.totalCount} Pull
+          Request(s).
+        </li>
       </ul>
     </PRWrapper>
   );

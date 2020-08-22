@@ -7,6 +7,7 @@ import Overview from "./Overview";
 import Stats from "./Stats";
 import Repositories from "./Repositories";
 import Contributions from "./Contributions";
+import Footer from "./Footer";
 
 const Main = styled.div`
   color: #333;
@@ -19,7 +20,7 @@ const Main = styled.div`
   // background: lightblue;
 `;
 
-const username = "Satyam1203";
+const username = "satyam1203";
 
 function Resume() {
   const { loading, error, data } = useQuery(PUBLIC_USER_DETAILS, {
@@ -53,11 +54,22 @@ function Resume() {
         websiteUrl={data.user.websiteUrl}
       />
       <Repositories repoList={data.user.pinnedItems.nodes} />
-      <Contributions
-        repoList={
-          data.user.contributionsCollection.pullRequestContributionsByRepository
-        }
-        prCount={data.user.contributionsCollection.totalPullRequestContributions}
+      {data.user.contributionsCollection.totalPullRequestContributions ? (
+        <Contributions
+          repoList={
+            data.user.contributionsCollection
+              .pullRequestContributionsByRepository
+          }
+          prCount={
+            data.user.contributionsCollection.totalPullRequestContributions
+          }
+        />
+      ) : null}
+      <Footer
+        username={username}
+        githubUrl={data.user.url}
+        websiteUrl={data.user.websiteUrl}
+        twitterUsername={data.user.twitterUsername}
       />
     </Main>
   );

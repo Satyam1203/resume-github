@@ -5,7 +5,7 @@ const Repository = styled.div`
   display: flex;
   align-items: center;
   margin-top: 16px;
-  a{
+  a {
     text-decoration: none;
     color: var(--repoTitleColor);
   }
@@ -80,21 +80,24 @@ function Repo({
         {homepageUrl ? (
           <div>
             <a href={homepageUrl} target="_blank" rel="noopener noreferrer">
-              Visit
+              Visit&emsp;<i className="fas fa-external-link-alt"></i>
+              {/* <i className="fas fa-caret-right"></i> */}
             </a>
-            <span className="material-icons">arrow_right_alt</span>
           </div>
         ) : null}
       </Repository>
       <Languages>
         {languages.edges.map((lang, i) => (
           <div className="language" key={i}>
-            <div className="indicator" style={{ background: lang.node.color }}></div>
+            <div
+              className="indicator"
+              style={{ background: lang.node.color }}
+            ></div>
             {lang.node.name}
           </div>
         ))}
       </Languages>
-      <p>{description}</p>
+      <p style={{ marginLeft: "14px" }}>{description}</p>
     </>
   );
 }
