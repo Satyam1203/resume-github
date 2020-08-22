@@ -31,9 +31,7 @@ export const PUBLIC_USER_DETAILS = gql`
         nodes {
           ... on Repository {
             id
-            name
             homepageUrl
-            isPrivate
             languages(first: 5, orderBy: { field: SIZE, direction: DESC }) {
               totalCount
               totalSize
@@ -45,7 +43,7 @@ export const PUBLIC_USER_DETAILS = gql`
                 size
               }
             }
-            mirrorUrl
+            name
             nameWithOwner
             primaryLanguage {
               name
@@ -73,10 +71,34 @@ export const PUBLIC_USER_DETAILS = gql`
         nodes {
           name
           diskUsage
+          id
+          homepageUrl
+          languages(first: 5, orderBy: { field: SIZE, direction: DESC }) {
+            totalCount
+            totalSize
+            edges {
+              node {
+                color
+                name
+              }
+              size
+            }
+          }
           nameWithOwner
+          primaryLanguage {
+            name
+          }
+          shortDescriptionHTML(limit: 1024)
           stargazers {
             totalCount
           }
+          url
+          owner {
+            ... on User {
+              name
+            }
+          }
+          forkCount
         }
         totalCount
       }
@@ -88,6 +110,7 @@ export const PUBLIC_USER_DETAILS = gql`
           repository {
             description
             nameWithOwner
+            url
           }
           contributions(orderBy: { direction: ASC }, first: 5) {
             totalCount

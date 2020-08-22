@@ -3,16 +3,21 @@ import React from "react";
 import { Wrapper } from "./styles";
 import PRRepo from "./PRRepo";
 
-function Contributions() {
+function Contributions({ repoList, prCount }) {
   return (
     <Wrapper>
       <h2>Contributions</h2>
       <p>(Pull requests)</p>
       <div style={{ margin: "1rem 0 0 1rem" }}>
-        <PRRepo />
-        <PRRepo />
-        <PRRepo />
+        {repoList.map((repo, i) => (
+          <PRRepo
+            key={i}
+            repository={repo.repository}
+            contributions={repo.contributions}
+          />
+        ))}
       </div>
+      {prCount - 5 > 0 ? <div>and {prCount} more...</div> : null}
     </Wrapper>
   );
 }

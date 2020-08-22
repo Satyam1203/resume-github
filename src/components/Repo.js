@@ -1,12 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Wrapper } from "./styles";
-
 const Repository = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 8px;
+  margin-top: 16px;
+  a{
+    text-decoration: none;
+    color: var(--repoTitleColor);
+  }
   justify-content: space-between;
   div {
     display: flex;
@@ -48,37 +50,51 @@ const Languages = styled.div`
   }
 `;
 
-function Repo() {
+function Repo({
+  forks,
+  languages,
+  stars,
+  homepageUrl,
+  name,
+  description,
+  url,
+}) {
   return (
     <>
       <Repository>
         <div className="repo_details">
-          <a href="url">
-            <div className="name">satyam1203/namename</div>
+          <a href={url} target="_blank" rel="noopener noreferrer">
+            <div className="name">{name}</div>
           </a>
-          <div>
-            3 <i className="fas fa-star"></i>
-          </div>
-          <div>
-            3 <i className="fas fa-code-branch"></i>
-          </div>
+          {stars ? (
+            <div>
+              {stars} <i className="fas fa-star"></i>
+            </div>
+          ) : null}
+          {forks ? (
+            <div>
+              {forks} <i className="fas fa-code-branch"></i>
+            </div>
+          ) : null}
         </div>
-        <div>
-          <a href="homepageUrl">Visit</a>
-          <span className="material-icons">arrow_right_alt</span>
-        </div>
+        {homepageUrl ? (
+          <div>
+            <a href={homepageUrl} target="_blank" rel="noopener noreferrer">
+              Visit
+            </a>
+            <span className="material-icons">arrow_right_alt</span>
+          </div>
+        ) : null}
       </Repository>
       <Languages>
-        <div className="language">
-          <div className="indicator" style={{ background: "grey" }}></div>
-          JavaScript
-        </div>
-        <div className="language">
-          <div className="indicator" style={{ background: "grey" }}></div>
-          JavaScript
-        </div>
+        {languages.edges.map((lang, i) => (
+          <div className="language" key={i}>
+            <div className="indicator" style={{ background: lang.node.color }}></div>
+            {lang.node.name}
+          </div>
+        ))}
       </Languages>
-      <p>Description</p>
+      <p>{description}</p>
     </>
   );
 }

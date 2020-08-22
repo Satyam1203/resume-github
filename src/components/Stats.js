@@ -5,36 +5,76 @@ import { Wrapper } from "./styles";
 const Statistics = styled.div`
   display: flex;
   justify-content: space-between;
-  ul{
-      width: 40%;
-      margin: 10px 0;
-      text-align: left;
+  ul {
+    width: 40%;
+    margin: 10px 0;
+    text-align: left;
   }
   .count-stats {
-      line-height: 24px;
+    line-height: 24px;
   }
 `;
 
-function Stats() {
+function Stats({
+  contributions,
+  followers,
+  following,
+  repoCount,
+  pkgCount,
+  bountyHunter,
+  campusExpert,
+  devMember,
+  hireable,
+  employee,
+  githubUrl,
+  websiteUrl,
+}) {
   return (
     <Wrapper>
       <h2>Stats</h2>
       <Statistics>
         <ul>
-          <li className="count-stats">2 followers</li>
-          <li className="count-stats">3 following</li>
-          <li className="count-stats">30 Public Repositories</li>
-          <li className="count-stats">103 Commits</li>
-          <li className="count-stats">3 Pull Requests</li>
-          <li className="count-stats">0 Issues</li>
-          <li className="count-stats">0 Packages</li>
+          <li className="count-stats">{repoCount} Public Repositories</li>
+          <li className="count-stats">{followers} followers</li>
+          <li className="count-stats">{following} following</li>
+          <li className="count-stats">
+            {contributions.contributionCalendar.totalContributions}{" "}
+            Contributions
+          </li>
+          {contributions.totalPullRequestContributions ? (
+            <li className="count-stats">
+              {contributions.totalPullRequestContributions} Pull Requests
+            </li>
+          ) : null}
+          {contributions.totalIssueContributions ? (
+            <li className="count-stats">
+              {contributions.totalIssueContributions} Issues
+            </li>
+          ) : null}
+          {pkgCount ? (
+            <li className="count-stats">{pkgCount} Packages</li>
+          ) : null}
         </ul>
         <ul>
-          <li className="count-stats">Campus Expert</li>
-          <li className="count-stats">Hireable</li>
+          {bountyHunter ? <li className="count-stats">Bounty Hunter</li> : null}
+          {devMember ? (
+            <li className="count-stats">Developer Program Member</li>
+          ) : null}
+          {employee ? <li className="count-stats">Employed</li> : null}
+          {campusExpert ? <li className="count-stats">Campus Expert</li> : null}
+          {hireable ? <li className="count-stats">Hireable</li> : null}
         </ul>
       </Statistics>
-      <p>I'm a motivated Github user, for more details about me, visit <a href="">this</a> page and my Github Profile <a href="">here.</a></p>
+      <p>
+        I'm a motivated Github user, for more details about me, visit{" "}
+        <a href={websiteUrl} target="_blank" rel="noopener noreferrer">
+          this
+        </a>{" "}
+        page and my Github Profile{" "}
+        <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+          here.
+        </a>
+      </p>
     </Wrapper>
   );
 }
