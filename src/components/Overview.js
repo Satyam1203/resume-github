@@ -23,10 +23,6 @@ const OverviewWrapper = styled.div`
     .location {
       font-size: 14px;
     }
-    .raleway {
-      // font-family: "Raleway", serif;
-      font-weight: 600;
-    }
   }
   .avatar {
     img {
@@ -45,8 +41,12 @@ function Overview({ name, username, bio, avatarUrl, location, createdAt }) {
         <h1>{name}</h1>
         <p>@{username}</p>
         <div>{bio}</div>
-        {location ? <div className="location raleway"><i className="fas fa-map-marker-alt"></i>&nbsp; {location}</div> : null}
-        <div className="raleway">On Github since {date}</div>
+        {location ? (
+          <div className="location">
+            <i className="fas fa-map-marker-alt"></i>&nbsp; {location}
+          </div>
+        ) : null}
+        <div>On Github since {date}</div>
       </div>
       <div className="avatar">
         <img src={avatarUrl} alt="Github Profile Avatar" />
