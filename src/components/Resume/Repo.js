@@ -14,6 +14,7 @@ const Repository = styled.div`
     display: flex;
     align-items: center;
   }
+
   .repo_details {
     display: flex;
     align-items: center;
@@ -60,7 +61,7 @@ function Repo({
   url,
 }) {
   return (
-    <>
+    <div>
       <Repository>
         <div className="repo_details">
           <a href={url} target="_blank" rel="noopener noreferrer">
@@ -97,8 +98,8 @@ function Repo({
           </div>
         ))}
       </Languages>
-      <p style={{ marginLeft: "14px" }}>{description}</p>
-    </>
+      <p className="description" style={{ marginLeft: "14px" }}>{description}</p>
+    </div>
   );
 }
 

@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 
-import svg from "../assets/github.png";
-import {HomeDesign, InputBox} from './Home.style';
+import svg from "../../assets/github.png";
+import { HomeDesign, InputBox } from "./Home.style";
 
-function Home() {
-  const [user, setUser] = useState("");
+function Home({ setShow, username, setUsername }) {
   const showResume = () => {
-    console.log(user);
+    setShow(true);
   };
   return (
     <HomeDesign>
@@ -25,8 +24,8 @@ function Home() {
               type="text"
               id="username"
               autoComplete="off"
-              value={user}
-              onChange={(e) => setUser(e.target.value)}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               onKeyPress={(e) => {
                 let code = e.which || e.keyCode;
                 if (code === 13) showResume();
@@ -37,7 +36,7 @@ function Home() {
           <button onClick={showResume}>Generate</button>
         </div>
       </div>
-      <img src={svg} alt="graphics"/>
+      <img src={svg} alt="graphics" />
     </HomeDesign>
   );
 }

@@ -8,10 +8,11 @@
 .App {
   text-align: center;
   font-family: "Quicksand", sans-serif;
-  background: url('./assets/bg.png');
+  /* background: url('./assets/bg.png');
   background-size: cover;
   background-position: left;
-  height: 100vh;
+  background-attachment: fixed;
+  height: 100vh; */
 }
 
 h1,
@@ -27,4 +28,5 @@ li {
 
 a{
   text-decoration: none;
+  cursor: pointer;
 }

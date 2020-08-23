@@ -15,6 +15,9 @@ const FooterWrapper = styled.footer`
     font-size: 12px;
     margin-top: 32px;
   }
+  a{
+    color: var(--repoTitleColor);
+  }
 `;
 
 function Footer({ username, githubUrl, websiteUrl, twitterUsername }) {

@@ -16,6 +16,9 @@ const Navigation = styled.nav`
   .title {
     display: flex;
     align-items: center;
+    a {
+      color: var(--color);
+    }
   }
   .nav-links {
     a {
@@ -32,16 +35,34 @@ const Navigation = styled.nav`
   }
 `;
 
-function Navbar() {
+function Navbar({ resumeVisible }) {
+  const printResume = () => {
+    document.getElementById("navbar").style.display = "none";
+    document.getElementById("resume").style.boxShadow = "none";
+    window.print();
+    document.getElementById("navbar").style.display = "flex";
+    document.getElementById("resume").style.boxShadow = "1px 2px 3px 2px grey";
+  };
   return (
-    <Navigation>
+    <Navigation id="navbar">
       <div className="title">
         <img src={logo} alt="logo" />
-        <h1>Github Resume Generator</h1>
+        <a href="">
+          <h1>Github Resume Generator</h1>
+        </a>
       </div>
       <div className="nav-links">
-        <a href="https://github.com/satyam1203/resume-github">Open in Github</a>
-        <a href="https://github.com/satyam1203/resume-github/fork">Fork</a>
+        {resumeVisible ? (
+          <>
+            <a onClick={printResume}>Print</a>
+            <a href="https://github.com/satyam1203/resume-github/fork">Fork</a>
+          </>
+        ) : (
+          <>
+            <a href="https://github.com/satyam1203/resume-github">Open in Github</a>
+            <a href="https://github.com/satyam1203/resume-github/fork">Fork</a>
+          </>
+        )}
       </div>
     </Navigation>
   );

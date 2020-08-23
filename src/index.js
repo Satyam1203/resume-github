@@ -11,7 +11,7 @@ const httpLink = createHttpLink({
 
 const authLink = setContext((_, { headers }) => {
   // const token = process.env.REACT_APP_GRAPHQL_API;
-  const token = '594a25608466e1ef5815eb1955c8aa727cd5f64f';
+  const token = '';
   return {
     headers: {
       ...headers,
