@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import parse from 'html-react-parser';
+
 const Repository = styled.div`
   display: flex;
   align-items: center;
@@ -51,15 +53,7 @@ const Languages = styled.div`
   }
 `;
 
-function Repo({
-  forks,
-  languages,
-  stars,
-  homepageUrl,
-  name,
-  description,
-  url,
-}) {
+function Repo({ forks, languages, stars, homepageUrl, name, description, url }) {
   return (
     <div>
       <Repository>
@@ -90,15 +84,14 @@ function Repo({
       <Languages>
         {languages.edges.map((lang, i) => (
           <div className="language" key={i}>
-            <div
-              className="indicator"
-              style={{ background: lang.node.color }}
-            ></div>
+            <div className="indicator" style={{ background: lang.node.color }}></div>
             {lang.node.name}
           </div>
         ))}
       </Languages>
-      <p className="description" style={{ marginLeft: "14px" }}>{description}</p>
+      <div className="description" style={{ marginLeft: "14px" }}>
+        {parse(description)}
+      </div>
     </div>
   );
 }

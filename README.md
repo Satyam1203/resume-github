@@ -14,6 +14,8 @@
 <img src="https://img.shields.io/github/issues-pr/Satyam1203/resume-github" />
 </div>
 
+<br />
+
 Enter your username in the homepage [here]([https://resume-github.vercel.app/](https://resume-github.vercel.app/)) and click Generate. We request your public data from Github GraphQL API v4 and generate your resume. Save the resume by clicking on print in the navigation bar and adjust margins as required. (Please use Laptop/ Desktop for better experience) If you're using chrome, make sure that Background Graphics is checked in more settings option while saving the document.
 
 ## Content
@@ -26,6 +28,7 @@ Enter your username in the homepage [here]([https://resume-github.vercel.app/](h
 
 - **Contributions** - Fourth section  contains your pull request contributions (most recent at the top), it also mentions how many commits are made in those pull requests. If you haven't contributed earlier, this section will not appear on your resume.
 
+- **Footer** - Your Username, Github Link, Website Link(if any).
 
 > #### Note:
 > If you think or do have any idea about more information being added in this resume, open an issue.

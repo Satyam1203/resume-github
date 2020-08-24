@@ -25,6 +25,8 @@ const OverviewWrapper = styled.div`
     }
   }
   .avatar {
+    display: flex;
+    align-items: center;
     img {
       width: 100px;
       object-fit: cover;

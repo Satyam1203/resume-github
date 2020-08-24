@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import parse from "html-react-parser";
+
 const PRWrapper = styled.div`
   margin: 16px 0;
   a {
@@ -30,10 +32,9 @@ function PRRepo({ repository, contributions }) {
       </div>
       <ul className="description">
         {" "}
-        {repository.description ? <li>{repository.description}</li> : null}
+        {repository.description ? <li>{parse(repository.description)}</li> : null}
         <li className="stats">
-          Made {commits} commit(s) in {contributions.totalCount} Pull
-          Request(s).
+          Made {commits} commit(s) in {contributions.totalCount} Pull Request(s).
         </li>
       </ul>
     </PRWrapper>
