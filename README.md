@@ -20,6 +20,10 @@
 
 <br />
 
+<p align="center">
+<img src="https://raw.githubusercontent.com/Satyam1203/resume-github/master/working.gif"  />
+</p>
+
 Enter your username in the homepage [here](<[https://resume-github.vercel.app/](https://resume-github.vercel.app/)>) and click Generate. We request your public data from Github GraphQL API v4 and generate your resume. Save the resume by clicking on print in the navigation bar and adjust margins as required. (Please use Laptop/ Desktop for better experience) If you're using chrome, make sure that Background Graphics is checked in more settings option while saving the document.
 
 ## Content
