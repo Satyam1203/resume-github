@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import svg from "../../assets/github.png";
 import { HomeDesign, InputBox } from "./Home.style";

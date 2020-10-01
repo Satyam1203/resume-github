@@ -47,14 +47,14 @@ function Navbar({ resumeVisible }) {
     <Navigation id="navbar">
       <div className="title">
         <img src={logo} alt="logo" />
-        <a href="">
+        <span>
           <h1>Github Resume Generator</h1>
-        </a>
+        </span>
       </div>
       <div className="nav-links">
         {resumeVisible ? (
           <>
-            <a onClick={printResume}>Print</a>
+            <span onClick={printResume}>Print</span>
             <a href="https://github.com/satyam1203/resume-github/fork">Fork</a>
           </>
         ) : (
