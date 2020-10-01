@@ -21,6 +21,7 @@ function Repositories({ repoList, username }) {
                 url={repo.url}
               />
             );
+          return null
         })}
       </div>
     </Wrapper>
