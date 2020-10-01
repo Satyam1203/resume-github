@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import AddGithubLinksOnBio from "../../utils/AddGithubLinksOnBio";
+import HTMLReactParser from "html-react-parser";
 
 const OverviewWrapper = styled.div`
   display: flex;
@@ -42,7 +44,7 @@ function Overview({ name, username, bio, avatarUrl, location, createdAt }) {
       <div className="user">
         <h1>{name}</h1>
         <p>@{username}</p>
-        <div>{bio}</div>
+        <div>{HTMLReactParser(AddGithubLinksOnBio(bio))}</div>
         {location ? (
           <div className="location">
             <i className="fas fa-map-marker-alt"></i>&nbsp; {location}
