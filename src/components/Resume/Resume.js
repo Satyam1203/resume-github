@@ -50,6 +50,7 @@ function Resume({username}) {
         hireable={data.user.isHireable}
         githubUrl={data.user.url}
         websiteUrl={data.user.websiteUrl}
+        starredRepoCount={data.user.starredRepositories.totalCount}
       />
       <Repositories repoList={data.user.pinnedItems.nodes} username={username} />
       {data.user.contributionsCollection.totalPullRequestContributions ? (

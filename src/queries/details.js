@@ -17,6 +17,9 @@ export const PUBLIC_USER_DETAILS = gql`
       isEmployee
       isSiteAdmin
       location
+      starredRepositories {
+        totalCount
+      }
       packages {
         totalCount
       }
