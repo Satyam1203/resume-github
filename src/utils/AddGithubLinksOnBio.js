@@ -2,7 +2,7 @@ const urlTemplate = (nameOfUserOrOrganization) => {
     return `<a href='https://github.com/${nameOfUserOrOrganization}' target="_blank">@${nameOfUserOrOrganization}</a>`
 }
 
-const AddGithubLinksOnBio = (bio ="Informatics & Software Engineering Student at IHU, Chair of @IEEEIHUSerres, Software Engineer at @datascouting") => {
+const AddGithubLinksOnBio = (bio) => {
     const regex = /(@)([^\s,.]+)/gm;
 
     const matches = bio.match(regex)
