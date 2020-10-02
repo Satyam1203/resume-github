@@ -26,6 +26,7 @@ function Repositories({ repoList, username }) {
                     description={repo.shortDescriptionHTML}
                     stars={repo.stargazers.totalCount}
                     url={repo.url}
+                    creationDate={repo.createdAt}
                 />
             );
         })}

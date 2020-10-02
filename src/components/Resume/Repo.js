@@ -53,7 +53,7 @@ const Languages = styled.div`
   }
 `;
 
-function Repo({ forks, languages, stars, homepageUrl, name, description, url }) {
+function Repo({ forks, languages, stars, homepageUrl, name, description, url, creationDate }) {
   return (
     <div>
       <Repository>
@@ -71,6 +71,11 @@ function Repo({ forks, languages, stars, homepageUrl, name, description, url }) 
               {forks} <i className="fas fa-code-branch"></i>
             </div>
           ) : null}
+            <div className="creation-date">
+                <strong>
+                    {new Date(creationDate).toLocaleDateString()}
+                </strong>
+            </div>
         </div>
         {homepageUrl ? (
           <div>
