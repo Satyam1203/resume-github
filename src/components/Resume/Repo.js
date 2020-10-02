@@ -34,6 +34,8 @@ const Repository = styled.div`
   .name {
     font-size: 20px;
   }
+  .creation-date {
+  font-size: 14px;
 `;
 
 const Languages = styled.div`
@@ -72,9 +74,7 @@ function Repo({ forks, languages, stars, homepageUrl, name, description, url, cr
             </div>
           ) : null}
             <div className="creation-date">
-                <strong>
-                    {new Date(creationDate).toLocaleDateString()}
-                </strong>
+                {new Date(creationDate).toLocaleDateString()}
             </div>
         </div>
         {homepageUrl ? (
