@@ -28,6 +28,7 @@ function Stats({
   employee,
   githubUrl,
   websiteUrl,
+  starredRepoCount,
 }) {
   return (
     <Wrapper>
@@ -35,8 +36,9 @@ function Stats({
       <Statistics>
         <ul>
           <li className="count-stats">{repoCount} Public Repositories</li>
-          <li className="count-stats">{followers} followers</li>
-          <li className="count-stats">{following} following</li>
+          <li className="count-stats">{followers} Followers</li>
+          <li className="count-stats">{following} Following</li>
+          <li className="count-stats">{starredRepoCount} Starred repositories</li>
           <li className="count-stats">
             {contributions.contributionCalendar.totalContributions}{" "}
             Contributions
