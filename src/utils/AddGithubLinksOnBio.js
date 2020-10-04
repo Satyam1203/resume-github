@@ -5,14 +5,16 @@ const urlTemplate = (nameOfUserOrOrganization) => {
 const AddGithubLinksOnBio = (bio) => {
     const regex = /(@)([^\s,.]+)/gm;
 
-    const matches = bio.match(regex)
-    const linkifiedMatches =  matches
-        .map(match => match.substr(1))
-        .map(urlTemplate)
+    const matches = bio.match(regex);
+    let result = bio;
+    if (matches != null) {
+        const linkifiedMatches = matches
+            .map(match => match.substr(1))
+            .map(urlTemplate);
 
-    let result = bio
-    for (let indexOfMatch = 0; indexOfMatch < matches.length; indexOfMatch++) {
-        result = result.replace(matches[indexOfMatch], linkifiedMatches[indexOfMatch])
+        for (let indexOfMatch = 0; indexOfMatch < matches.length; indexOfMatch++) {
+            result = result.replace(matches[indexOfMatch], linkifiedMatches[indexOfMatch]);
+        }
     }
 
     return result;
