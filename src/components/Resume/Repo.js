@@ -34,6 +34,8 @@ const Repository = styled.div`
   .name {
     font-size: 20px;
   }
+  .creation-date {
+  font-size: 14px;
 `;
 
 const Languages = styled.div`
@@ -53,7 +55,7 @@ const Languages = styled.div`
   }
 `;
 
-function Repo({ forks, languages, stars, homepageUrl, name, description, url }) {
+function Repo({ forks, languages, stars, homepageUrl, name, description, url, creationDate }) {
   return (
     <div>
       <Repository>
@@ -71,6 +73,9 @@ function Repo({ forks, languages, stars, homepageUrl, name, description, url }) 
               {forks} <i className="fas fa-code-branch"></i>
             </div>
           ) : null}
+            <div className="creation-date">
+                {new Date(creationDate).toLocaleDateString()}
+            </div>
         </div>
         {homepageUrl ? (
           <div>

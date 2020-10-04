@@ -34,6 +34,7 @@ export const PUBLIC_USER_DETAILS = gql`
         nodes {
           ... on Repository {
             id
+            createdAt
             homepageUrl
             languages(first: 5, orderBy: { field: SIZE, direction: DESC }) {
               totalCount
@@ -75,6 +76,7 @@ export const PUBLIC_USER_DETAILS = gql`
           name
           diskUsage
           id
+          createdAt
           homepageUrl
           languages(first: 5, orderBy: { field: SIZE, direction: DESC }) {
             totalCount
