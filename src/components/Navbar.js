@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 import logo from "../assets/resume.png";
@@ -21,7 +22,9 @@ const Navigation = styled.nav`
     }
   }
   .nav-links {
-    a {
+    a,
+    .anchor-style {
+      cursor: pointer;
       margin: 0 10px;
       color: var(--color);
       :hover {
@@ -35,7 +38,8 @@ const Navigation = styled.nav`
   }
 `;
 
-function Navbar({ resumeVisible }) {
+function Navbar() {
+  const location = useLocation();
   const printResume = () => {
     document.getElementById("navbar").style.display = "none";
     document.getElementById("resume").style.boxShadow = "none";
@@ -52,17 +56,14 @@ function Navbar({ resumeVisible }) {
         </span>
       </div>
       <div className="nav-links">
-        {resumeVisible ? (
-          <>
-            <span onClick={printResume}>Print</span>
-            <a href="https://github.com/satyam1203/resume-github/fork">Fork</a>
-          </>
+        {location.pathname === "/" ? (
+          <a href="https://github.com/satyam1203/resume-github">Open in Github</a>
         ) : (
-          <>
-            <a href="https://github.com/satyam1203/resume-github">Open in Github</a>
-            <a href="https://github.com/satyam1203/resume-github/fork">Fork</a>
-          </>
+          <span className="anchor-style" onClick={printResume}>
+            Print
+          </span>
         )}
+        <a href="https://github.com/satyam1203/resume-github/fork">Fork</a>
       </div>
     </Navigation>
   );

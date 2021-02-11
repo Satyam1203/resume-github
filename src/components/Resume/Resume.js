@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { useQuery } from "@apollo/client";
 import { PUBLIC_USER_DETAILS } from "../../queries/details";
@@ -20,7 +21,8 @@ const Main = styled.div`
   // background: lightblue;
 `;
 
-function Resume({username}) {
+function Resume() {
+  const { username } = useParams();
   const { loading, error, data } = useQuery(PUBLIC_USER_DETAILS, {
     variables: { username },
   });
@@ -28,7 +30,7 @@ function Resume({username}) {
   if (error) return <p>Error{console.log(error)}</p>;
   return (
     <Main id="resume">
-      {console.log(data)}
+      {/* {console.log(data)} */}
       <Overview
         name={data.user.name}
         username={username}
@@ -55,13 +57,8 @@ function Resume({username}) {
       <Repositories repoList={data.user.pinnedItems.nodes} username={username} />
       {data.user.contributionsCollection.totalPullRequestContributions ? (
         <Contributions
-          repoList={
-            data.user.contributionsCollection
-              .pullRequestContributionsByRepository
-          }
-          prCount={
-            data.user.contributionsCollection.totalPullRequestContributions
-          }
+          repoList={data.user.contributionsCollection.pullRequestContributionsByRepository}
+          prCount={data.user.contributionsCollection.totalPullRequestContributions}
         />
       ) : null}
       <Footer

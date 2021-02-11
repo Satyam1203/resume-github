@@ -44,7 +44,7 @@ function Overview({ name, username, bio, avatarUrl, location, createdAt }) {
       <div className="user">
         <h1>{name}</h1>
         <p>@{username}</p>
-        <div>{HTMLReactParser(AddGithubLinksOnBio(bio))}</div>
+        <div>{bio && HTMLReactParser(AddGithubLinksOnBio(bio))}</div>
         {location ? (
           <div className="location">
             <i className="fas fa-map-marker-alt"></i>&nbsp; {location}
