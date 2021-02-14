@@ -1,9 +1,10 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import styled from "styled-components";
 import { useQuery } from "@apollo/client";
 import { PUBLIC_USER_DETAILS } from "../../queries/details";
 
+import Loader from "../../utils/Loader";
 import Overview from "./Overview";
 import Stats from "./Stats";
 import Repositories from "./Repositories";
@@ -26,8 +27,14 @@ function Resume({ titleColor }) {
   const { loading, error, data } = useQuery(PUBLIC_USER_DETAILS, {
     variables: { username },
   });
-  if (loading) return <p>Loading ...</p>;
-  if (error) return <p>Error{console.log(error)}</p>;
+  if (loading) return <Loader />;
+  if (error)
+    return (
+      <div>
+        <p>Unexpected Error: Invalid Username or API error {console.log(error)}</p>
+        <Link to="/">Go back</Link>
+      </div>
+    );
   return (
     <Main id="resume">
       {/* {console.log(data)} */}
