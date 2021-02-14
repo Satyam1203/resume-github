@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import parse from 'html-react-parser';
+import parse from "html-react-parser";
 
 const Repository = styled.div`
   display: flex;
@@ -10,6 +10,9 @@ const Repository = styled.div`
   a {
     text-decoration: none;
     color: var(--repoTitleColor);
+  }
+  a:hover {
+    color: var(--repoTitleHoverColor);
   }
   justify-content: space-between;
   div {

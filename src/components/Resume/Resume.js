@@ -21,7 +21,7 @@ const Main = styled.div`
   // background: lightblue;
 `;
 
-function Resume() {
+function Resume({ titleColor }) {
   const { username } = useParams();
   const { loading, error, data } = useQuery(PUBLIC_USER_DETAILS, {
     variables: { username },
@@ -53,12 +53,18 @@ function Resume() {
         githubUrl={data.user.url}
         websiteUrl={data.user.websiteUrl}
         starredRepoCount={data.user.starredRepositories.totalCount}
+        titleColor={titleColor}
       />
-      <Repositories repoList={data.user.pinnedItems.nodes} username={username} />
+      <Repositories
+        repoList={data.user.pinnedItems.nodes}
+        username={username}
+        titleColor={titleColor}
+      />
       {data.user.contributionsCollection.totalPullRequestContributions ? (
         <Contributions
           repoList={data.user.contributionsCollection.pullRequestContributionsByRepository}
           prCount={data.user.contributionsCollection.totalPullRequestContributions}
+          titleColor={titleColor}
         />
       ) : null}
       <Footer

@@ -9,6 +9,9 @@ const PRWrapper = styled.div`
     text-decoration: none;
     color: var(--repoTitleColor);
   }
+  a:hover {
+    color: var(--repoTitleHoverColor);
+  }
   .name {
     font-size: 20px;
     margin: 4px 0;

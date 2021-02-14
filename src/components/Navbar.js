@@ -22,6 +22,8 @@ const Navigation = styled.nav`
     }
   }
   .nav-links {
+    display: flex;
+    align-items: flex-end;
     a,
     .anchor-style {
       cursor: pointer;
@@ -38,7 +40,7 @@ const Navigation = styled.nav`
   }
 `;
 
-function Navbar() {
+function Navbar({ titleColor, setTitleColor }) {
   const location = useLocation();
   const printResume = () => {
     document.getElementById("navbar").style.display = "none";
@@ -59,9 +61,17 @@ function Navbar() {
         {location.pathname === "/" ? (
           <a href="https://github.com/satyam1203/resume-github">Open in Github</a>
         ) : (
-          <span className="anchor-style" onClick={printResume}>
-            Print
-          </span>
+          <>
+            <input
+              className="anchor-style"
+              type="color"
+              value={titleColor}
+              onChange={(e) => setTitleColor(e.target.value)}
+            />
+            <span className="anchor-style" onClick={printResume}>
+              Print
+            </span>
+          </>
         )}
         <a href="https://github.com/satyam1203/resume-github/fork">Fork</a>
       </div>

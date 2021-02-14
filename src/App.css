@@ -2,7 +2,8 @@
   --color: #3498db;
   --lightgrey: #999;
   --darkgrey: #555;
-  --repoTitleColor: #547BCB;
+  --repoTitleColor: #547bcb;
+  --repoTitleHoverColor: #384e97;
 }
 
 .App {
@@ -26,7 +27,24 @@ li {
   margin-left: 2rem;
 }
 
-a{
+a {
   text-decoration: none;
   cursor: pointer;
+}
+
+input[type="color"] {
+  -webkit-appearance: none;
+  border: none;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  outline: none;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+  /* border-radius: 50%; */
+}
+input[type="color"]::-webkit-color-swatch,
+input[type="color"]::-moz-color-swatch {
+  border: none;
 }

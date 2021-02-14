@@ -29,10 +29,11 @@ function Stats({
   githubUrl,
   websiteUrl,
   starredRepoCount,
+  titleColor,
 }) {
   return (
     <Wrapper>
-      <h2>Stats</h2>
+      <h2 style={{ color: titleColor || "" }}>Stats</h2>
       <Statistics>
         <ul>
           <li className="count-stats">{repoCount} Public Repositories</li>
@@ -40,8 +41,7 @@ function Stats({
           <li className="count-stats">{following} Following</li>
           <li className="count-stats">{starredRepoCount} Starred repositories</li>
           <li className="count-stats">
-            {contributions.contributionCalendar.totalContributions}{" "}
-            Contributions
+            {contributions.contributionCalendar.totalContributions} Contributions
           </li>
           {contributions.totalPullRequestContributions ? (
             <li className="count-stats">
@@ -49,19 +49,13 @@ function Stats({
             </li>
           ) : null}
           {contributions.totalIssueContributions ? (
-            <li className="count-stats">
-              {contributions.totalIssueContributions} Issues
-            </li>
+            <li className="count-stats">{contributions.totalIssueContributions} Issues</li>
           ) : null}
-          {pkgCount ? (
-            <li className="count-stats">{pkgCount} Packages</li>
-          ) : null}
+          {pkgCount ? <li className="count-stats">{pkgCount} Packages</li> : null}
         </ul>
         <ul>
           {bountyHunter ? <li className="count-stats">Bounty Hunter</li> : null}
-          {devMember ? (
-            <li className="count-stats">Developer Program Member</li>
-          ) : null}
+          {devMember ? <li className="count-stats">Developer Program Member</li> : null}
           {employee ? <li className="count-stats">Employed</li> : null}
           {campusExpert ? <li className="count-stats">Campus Expert</li> : null}
           {hireable ? <li className="count-stats">Hireable</li> : null}
