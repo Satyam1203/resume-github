@@ -1,18 +1,47 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useContext } from "react";
+import styled, { css } from "styled-components";
+
 import { Wrapper } from "./styles";
+import { ConfigContext } from "./";
 
 const Statistics = styled.div`
   display: flex;
   justify-content: space-between;
   ul {
-    width: 40%;
+    width: 100%;
     margin: 10px 0;
     text-align: left;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
   .count-stats {
     line-height: 24px;
   }
+
+  ${({ pills, outlined }) =>
+    pills &&
+    css`
+      display: flex;
+      flex-direction: column;
+
+      ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        list-style-type: none;
+      }
+
+      li {
+        display: inline-block;
+        padding: 6px 12px;
+
+        margin: 4px;
+        border-radius: 8px;
+        ${outlined
+          ? `border: 1px solid var(--color); color: var(--color);`
+          : `background: var(--color); color: #fff;`}
+      }
+    `}
 `;
 
 function Stats({
@@ -31,10 +60,12 @@ function Stats({
   starredRepoCount,
   titleColor,
 }) {
+  const { config } = useContext(ConfigContext);
+
   return (
     <Wrapper>
       <h2 style={{ color: titleColor || "" }}>Stats</h2>
-      <Statistics>
+      <Statistics pills={config?.stats?.pills} outlined={config?.stats?.outlined}>
         <ul>
           <li className="count-stats">{repoCount} Public Repositories</li>
           <li className="count-stats">{followers} Followers</li>
@@ -52,8 +83,6 @@ function Stats({
             <li className="count-stats">{contributions.totalIssueContributions} Issues</li>
           ) : null}
           {pkgCount ? <li className="count-stats">{pkgCount} Packages</li> : null}
-        </ul>
-        <ul>
           {bountyHunter ? <li className="count-stats">Bounty Hunter</li> : null}
           {devMember ? <li className="count-stats">Developer Program Member</li> : null}
           {employee ? <li className="count-stats">Employed</li> : null}
