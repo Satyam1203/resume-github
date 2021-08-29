@@ -4,7 +4,7 @@ import "./App.css";
 
 import Navbar from "./components/Navbar";
 import Home from "./components/Home/Home";
-import Resume from "./components/Resume/Resume";
+import Resume from "./components/Resume";
 
 function App() {
   const [titleColor, setTitleColor] = useState("#547bcb");
