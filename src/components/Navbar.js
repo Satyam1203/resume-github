@@ -42,13 +42,8 @@ const Navigation = styled.nav`
 
 function Navbar({ titleColor, setTitleColor }) {
   const location = useLocation();
-  const printResume = () => {
-    document.getElementById("navbar").style.display = "none";
-    document.getElementById("resume").style.boxShadow = "none";
-    window.print();
-    document.getElementById("navbar").style.display = "flex";
-    document.getElementById("resume").style.boxShadow = "1px 2px 3px 2px grey";
-  };
+  const printResume = () => window.print();
+
   return (
     <Navigation id="navbar">
       <div className="title">

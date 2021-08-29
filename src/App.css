@@ -40,6 +40,7 @@ input[type="color"] {
   cursor: pointer;
   outline: none;
 }
+
 input[type="color"]::-webkit-color-swatch-wrapper {
   padding: 0;
   /* border-radius: 50%; */
@@ -47,4 +48,22 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 input[type="color"]::-webkit-color-swatch,
 input[type="color"]::-moz-color-swatch {
   border: none;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #resume,
+  #resume * {
+    visibility: visible;
+  }
+
+  #resume {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: none;
+  }
 }
