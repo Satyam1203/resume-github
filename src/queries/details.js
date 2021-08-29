@@ -67,7 +67,7 @@ export const PUBLIC_USER_DETAILS = gql`
       }
       repositories(
         orderBy: { field: STARGAZERS, direction: DESC }
-        first: 5
+        first: 6
         ownerAffiliations: OWNER
         privacy: PUBLIC
       ) {

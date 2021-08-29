@@ -60,12 +60,16 @@ function Stats({
   starredRepoCount,
   titleColor,
 }) {
-  const { config } = useContext(ConfigContext);
+  const {
+    config: {
+      stats: { pills, outlined },
+    },
+  } = useContext(ConfigContext);
 
   return (
     <Wrapper>
       <h2 style={{ color: titleColor || "" }}>Stats</h2>
-      <Statistics pills={config?.stats?.pills} outlined={config?.stats?.outlined}>
+      <Statistics pills={pills} outlined={outlined}>
         <ul>
           <li className="count-stats">{repoCount} Public Repositories</li>
           <li className="count-stats">{followers} Followers</li>

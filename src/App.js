@@ -8,6 +8,7 @@ import Resume from "./components/Resume";
 
 function App() {
   const [titleColor, setTitleColor] = useState("#547bcb");
+
   return (
     <Router>
       <div className="App">
