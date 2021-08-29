@@ -68,8 +68,12 @@ const HomeDesign = styled.div`
     background: var(--color);
     color: #fff;
     border-radius: 2rem;
+    box-shadow: 0 1px 2px 1px #777;
     :hover {
       opacity: 0.9;
+    }
+    :active {
+      box-shadow: none;
     }
   }
 
