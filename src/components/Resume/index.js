@@ -3,6 +3,7 @@ import Resume from "./Resume";
 import styled, { css } from "styled-components";
 
 import Customizer from "../Customizer";
+import options from "../../config/options";
 
 export const ConfigContext = createContext();
 
@@ -32,9 +33,9 @@ const OptionsTab = styled.div`
 
 // const Section = styled.div``;
 
-export default () => {
+export default ({ titleColor }) => {
   const [menuOpen, setMenuOpen] = useState(true);
-  const [config, setConfig] = useState({});
+  const [config, setConfig] = useState(options);
 
   return (
     <ConfigContext.Provider value={{ config, setConfig }}>
@@ -49,7 +50,7 @@ export default () => {
             onClick={() => setMenuOpen((value) => !value)}
           />
         </div>
-        <Resume />
+        <Resume titleColor={titleColor} />
       </Div>
     </ConfigContext.Provider>
   );

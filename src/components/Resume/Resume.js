@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import styled from "styled-components";
 import { useQuery } from "@apollo/client";
@@ -10,6 +10,7 @@ import Stats from "./Stats";
 import Repositories from "./Repositories";
 import Contributions from "./Contributions";
 import Footer from "./Footer";
+import { ConfigContext } from "./";
 
 const Main = styled.div`
   color: #333;
@@ -23,10 +24,22 @@ const Main = styled.div`
 `;
 
 function Resume({ titleColor }) {
+  const {
+    config: {
+      repositories: { showPinned },
+    },
+  } = useContext(ConfigContext);
   const { username } = useParams();
   const { loading, error, data } = useQuery(PUBLIC_USER_DETAILS, {
     variables: { username },
   });
+  const [repo, setRepo] = useState(false);
+
+  useEffect(() => {
+    setRepo(showPinned);
+    // eslint-disable-next-line
+  }, [showPinned]);
+
   if (loading) return <Loader />;
   if (error)
     return (
@@ -63,17 +76,17 @@ function Resume({ titleColor }) {
         titleColor={titleColor}
       />
       <Repositories
-        repoList={data.user.pinnedItems.nodes}
+        repoList={repo ? data?.user?.pinnedItems?.nodes : data?.user?.repositories?.nodes}
         username={username}
         titleColor={titleColor}
       />
-      {data.user.contributionsCollection.totalPullRequestContributions ? (
+      {data.user.contributionsCollection.totalPullRequestContributions && (
         <Contributions
           repoList={data.user.contributionsCollection.pullRequestContributionsByRepository}
           prCount={data.user.contributionsCollection.totalPullRequestContributions}
           titleColor={titleColor}
         />
-      ) : null}
+      )}
       <Footer
         username={username}
         githubUrl={data.user.url}
