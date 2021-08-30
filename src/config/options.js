@@ -9,5 +9,6 @@ export default {
   },
   contributions: {
     count: 5,
+    showMoreText: true,
   },
 };

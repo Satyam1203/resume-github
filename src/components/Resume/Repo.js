@@ -19,15 +19,16 @@ const Repository = styled.div`
     align-items: center;
   }
 
+  .fas {
+    font-size: 14px !important;
+    margin-left: 3px !important;
+  }
+
   .repo_details {
     display: flex;
     align-items: center;
     > div {
       margin-left: 16px;
-      .fas {
-        font-size: 14px;
-        margin-left: 3px;
-      }
       .fa-star {
         color: #f4c724;
       }
@@ -77,7 +78,7 @@ function Repo({ forks, languages, stars, homepageUrl, name, description, url }) 
         {homepageUrl ? (
           <div>
             <a href={homepageUrl} target="_blank" rel="noopener noreferrer">
-              Visit&emsp;<i className="fas fa-external-link-alt"></i>
+              Visit&nbsp;<i className="fas fa-external-link-alt"></i>
               {/* <i className="fas fa-caret-right"></i> */}
             </a>
           </div>

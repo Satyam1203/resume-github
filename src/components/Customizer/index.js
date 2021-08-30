@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import StatsView from "./StatsView";
 import RepositoriesView from "./RepositoriesView";
+import ContributionsView from "./ContributionsView";
 
 const OptionsWrapper = styled.div`
   padding: 1rem 0;
@@ -14,6 +15,7 @@ export default () => {
     <OptionsWrapper>
       <StatsView />
       <RepositoriesView />
+      <ContributionsView />
     </OptionsWrapper>
   );
 };
