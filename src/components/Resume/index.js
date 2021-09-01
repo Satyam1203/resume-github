@@ -10,19 +10,39 @@ export const ConfigContext = createContext();
 const Div = styled.div`
   display: flex;
   color: #333;
+  margin-top: 1rem;
 
-  .fas {
-    font-size: 20px;
+  .toggle-options-tab {
+    height: max-content;
+    cursor: pointer;
+    padding: 4px;
+    border: 1px solid grey;
+    border-left: 1px solid #fff;
+    border-radius: 2px;
+    margin-left: -1px;
+    position: relative;
+    z-index: 1;
+
+    .fas {
+      width: 20px;
+    }
   }
 `;
 
 const OptionsTab = styled.div`
   --width: clamp(100px, 30%, 350px);
   width: var(--width);
+  height: calc(100vh - 72px - 1rem);
   margin-left: calc(-1 * var(--width));
   position: relative;
   transition: all 1s ease;
   border-right: 1px dashed black;
+
+  &,
+  & + .toggle-options-tab {
+    position: sticky;
+    top: calc(72px + 1rem);
+  }
 
   ${({ open }) =>
     open &&
@@ -44,11 +64,8 @@ export default ({ titleColor }) => {
           <h3>Customize it!</h3>
           <Customizer />
         </OptionsTab>
-        <div>
-          <i
-            className={`fas ${menuOpen ? "fa-arrow-left" : "fa-bars"}`}
-            onClick={() => setMenuOpen((value) => !value)}
-          />
+        <div className="toggle-options-tab" onClick={() => setMenuOpen((value) => !value)}>
+          <i className={`fas ${menuOpen ? "fa-arrow-left" : "fa-bars"}`} />
         </div>
         <Resume titleColor={titleColor} />
       </Div>

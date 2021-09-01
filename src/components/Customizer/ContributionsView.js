@@ -14,7 +14,6 @@ export default () => {
   }, [count]);
 
   useEffect(() => {
-    console.log(config);
     setConfig({ ...config, contributions: { ...config.contributions, showMoreText } });
     // eslint-disable-next-line
   }, [showMoreText]);

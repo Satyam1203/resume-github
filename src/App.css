@@ -65,5 +65,6 @@ input[type="color"]::-moz-color-swatch {
     top: 0;
     left: 0;
     box-shadow: none;
+    padding: 0 2rem;
   }
 }

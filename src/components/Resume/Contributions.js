@@ -16,7 +16,6 @@ function Contributions({ repoList, prCount, titleColor }) {
   useEffect(() => setRepoCount(count), [count]);
 
   useEffect(() => {
-    console.log(showMoreText);
     setShowMore(showMoreText);
   }, [showMoreText]);
 

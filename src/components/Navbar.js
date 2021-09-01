@@ -1,10 +1,13 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import styled from "styled-components";
 
 import logo from "../assets/resume.png";
 
 const Navigation = styled.nav`
+  position: sticky;
+  top: 0;
+  background: #fff;
   padding: 1rem 0;
   display: flex;
   justify-content: space-around;
@@ -33,6 +36,10 @@ const Navigation = styled.nav`
         color: var(--darkgrey);
       }
     }
+
+    [class^="fa"] {
+      margin-right: 4px;
+    }
   }
 
   @media (max-width: 675px) {
@@ -49,12 +56,16 @@ function Navbar({ titleColor, setTitleColor }) {
       <div className="title">
         <img src={logo} alt="logo" />
         <span>
-          <h1>Github Resume Generator</h1>
+          <h1>
+            <Link to="/">Github Resume Generator</Link>
+          </h1>
         </span>
       </div>
       <div className="nav-links">
         {location.pathname === "/" ? (
-          <a href="https://github.com/satyam1203/resume-github">Open in Github</a>
+          <a href="https://github.com/satyam1203/resume-github">
+            <i className="fab fa-github"></i>Open in Github
+          </a>
         ) : (
           <>
             <input
@@ -64,11 +75,14 @@ function Navbar({ titleColor, setTitleColor }) {
               onChange={(e) => setTitleColor(e.target.value)}
             />
             <span className="anchor-style" onClick={printResume}>
+              <i className="fas fa-print"></i>
               Print
             </span>
           </>
         )}
-        <a href="https://github.com/satyam1203/resume-github/fork">Fork</a>
+        <a href="https://github.com/satyam1203/resume-github/fork">
+          <i className="fas fa-code-branch"></i>Fork
+        </a>
       </div>
     </Navigation>
   );
