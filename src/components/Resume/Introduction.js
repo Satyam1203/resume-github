@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import AddGithubLinksOnBio from "../../utils/AddGithubLinksOnBio";
 import HTMLReactParser from "html-react-parser";
+
+import AddGithubLinksOnBio from "../../utils/AddGithubLinksOnBio";
+import { ConfigContext } from "./";
 
 const OverviewWrapper = styled.div`
   display: flex;
@@ -38,19 +40,21 @@ const OverviewWrapper = styled.div`
 `;
 
 function Overview({ name, username, bio, avatarUrl, location, createdAt }) {
+  const { config } = useContext(ConfigContext);
   const date = new Date(createdAt).toUTCString().slice(8, 16);
+
   return (
     <OverviewWrapper>
       <div className="user">
         <h1>{name}</h1>
         <p>@{username}</p>
-        <div>{bio && HTMLReactParser(AddGithubLinksOnBio(bio))}</div>
-        {location ? (
+        <div>{config.intro.bio && bio && HTMLReactParser(AddGithubLinksOnBio(bio))}</div>
+        {config.intro.location && location && (
           <div className="location">
             <i className="fas fa-map-marker-alt"></i>&nbsp; {location}
           </div>
-        ) : null}
-        <div>On Github since {date}</div>
+        )}
+        {config.intro.joinedYear && <div>On Github since {date}</div>}
       </div>
       <div className="avatar">
         <img src={avatarUrl} alt="Github Profile Avatar" />

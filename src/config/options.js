@@ -1,4 +1,9 @@
 export default {
+  intro: {
+    bio: true,
+    location: true,
+    joinedYear: false,
+  },
   stats: {
     pills: false,
     outlined: false,

@@ -5,7 +5,7 @@ import { useQuery } from "@apollo/client";
 import { PUBLIC_USER_DETAILS } from "../../queries/details";
 
 import Loader from "../../utils/Loader";
-import Overview from "./Overview";
+import Introduction from "./Introduction";
 import Stats from "./Stats";
 import Repositories from "./Repositories";
 import Contributions from "./Contributions";
@@ -51,7 +51,7 @@ function Resume({ titleColor }) {
   return (
     <Main id="resume">
       {/* {console.log(data)} */}
-      <Overview
+      <Introduction
         name={data.user.name}
         username={username}
         bio={data.user.bio}
