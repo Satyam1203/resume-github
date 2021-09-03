@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 
 import Repo from "./Repo";
 import { Wrapper } from "./styles";
@@ -14,18 +14,13 @@ function Repositories({ repoList, username, titleColor }) {
       repositories: { count },
     },
   } = useContext(ConfigContext);
-  const [repoCount, setRepoCount] = useState(count);
-
-  useEffect(() => {
-    setRepoCount(count);
-  }, [count]);
 
   return (
     <Wrapper>
       <h2 style={{ color: titleColor || "" }}>Top Repositories</h2>
       <div style={{ margin: "1rem 0 0 1rem" }}>
         {repoList.map((repo, i) => {
-          if (repoCount < i + 1) return null;
+          if (count < i + 1) return null;
           if (!isUserOwnerOfRepository(username, repo)) {
             return null;
           }

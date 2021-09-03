@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 
 import { Wrapper } from "./styles";
 import PRRepo from "./PRRepo";
@@ -10,14 +10,6 @@ function Contributions({ repoList, prCount, titleColor }) {
       contributions: { count, showMoreText },
     },
   } = useContext(ConfigContext);
-  const [repoCount, setRepoCount] = useState(count);
-  const [showMore, setShowMore] = useState(showMoreText);
-
-  useEffect(() => setRepoCount(count), [count]);
-
-  useEffect(() => {
-    setShowMore(showMoreText);
-  }, [showMoreText]);
 
   return (
     <Wrapper>
@@ -25,11 +17,11 @@ function Contributions({ repoList, prCount, titleColor }) {
       <p>(Pull requests)</p>
       <div style={{ margin: "1rem 0 0 1rem" }}>
         {repoList.map((repo, i) => {
-          if (repoCount < i + 1) return null;
+          if (count < i + 1) return null;
           return <PRRepo key={i} repository={repo.repository} contributions={repo.contributions} />;
         })}
       </div>
-      {showMore && prCount - repoCount > 0 && <div>and {prCount - repoCount} more...</div>}
+      {showMoreText && prCount - count > 0 && <div>and {prCount - count} more...</div>}
     </Wrapper>
   );
 }

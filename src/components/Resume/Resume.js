@@ -37,7 +37,6 @@ function Resume({ titleColor }) {
 
   useEffect(() => {
     setRepo(showPinned);
-    // eslint-disable-next-line
   }, [showPinned]);
 
   if (loading) return <Loader />;
