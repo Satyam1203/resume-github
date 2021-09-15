@@ -20,12 +20,11 @@ export default () => {
 
   return (
     <WrapperDiv>
-      <h4>Toggle Stats View</h4>
+      <h4>Change Stats View</h4>
       <label>
         Pills View:
         <input type="checkbox" checked={pills} onChange={(e) => setPills(e.target.checked)} />
       </label>
-      <br />
       {pills && (
         <label>
           Change Pills style:

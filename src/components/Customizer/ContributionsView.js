@@ -37,7 +37,6 @@ export default () => {
           onChange={(e) => setCount(Number(e.target.value))}
         />
       </label>
-      <br />
       <label>
         Show "and n more":
         <input
@@ -46,7 +45,6 @@ export default () => {
           onChange={(e) => setShowMoreText(e.target.checked)}
         />
       </label>
-      <br />
       <label>
         Show only merged PRs:
         <input

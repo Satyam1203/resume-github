@@ -6,4 +6,21 @@ export const WrapperDiv = styled.div`
   > h4 {
     padding-bottom: 8px;
   }
+
+  label {
+    display: flex;
+    align-items: center;
+    padding: 2px 0;
+    margin-left: 12px;
+    width: max-content;
+    cursor: pointer;
+  }
+
+  input {
+    margin-left: 6px;
+    &[type="radio"] {
+      margin-left: 0;
+      margin-right: 6px;
+    }
+  }
 `;

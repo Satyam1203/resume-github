@@ -3,6 +3,7 @@ export default {
     bio: true,
     location: true,
     joinedYear: false,
+    avatar: true,
   },
   stats: {
     pills: false,

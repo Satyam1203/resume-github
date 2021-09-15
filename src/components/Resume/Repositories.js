@@ -15,6 +15,8 @@ function Repositories({ repoList, username, titleColor }) {
     },
   } = useContext(ConfigContext);
 
+  if (!count) return null;
+
   return (
     <Wrapper>
       <h2 style={{ color: titleColor || "" }}>Top Repositories</h2>

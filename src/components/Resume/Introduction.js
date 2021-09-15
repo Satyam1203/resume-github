@@ -56,9 +56,11 @@ function Overview({ name, username, bio, avatarUrl, location, createdAt }) {
         )}
         {config.intro.joinedYear && <div>On Github since {date}</div>}
       </div>
-      <div className="avatar">
-        <img src={avatarUrl} alt="Github Profile Avatar" />
-      </div>
+      {config.intro.avatar && (
+        <div className="avatar">
+          <img src={avatarUrl} alt="Github Profile Avatar" />
+        </div>
+      )}
     </OverviewWrapper>
   );
 }

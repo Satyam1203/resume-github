@@ -32,7 +32,6 @@ export default () => {
           onChange={(e) => setCount(Number(e.target.value))}
         />
       </label>
-      <br />
       <label>
         <input
           type="radio"
@@ -43,7 +42,6 @@ export default () => {
         />
         Show pinned items
       </label>
-      <br />
       <label>
         <input
           type="radio"
