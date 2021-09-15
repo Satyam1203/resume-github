@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-
 import parse from "html-react-parser";
 
 const PRWrapper = styled.div`
@@ -21,11 +20,27 @@ const PRWrapper = styled.div`
   }
 `;
 
-function PRRepo({ repository, contributions }) {
-  let commits = 0;
-  contributions.nodes.forEach((node) => {
-    commits += node.pullRequest.commits.totalCount;
-  });
+function PRRepo({ repository, contributions, showMerged }) {
+  const [commits, setCommits] = useState(0);
+  const [pr, setPR] = useState(0);
+
+  useEffect(() => {
+    let commitCount = 0;
+    let prCount = 0;
+
+    contributions.nodes.forEach((node) => {
+      if (showMerged && node.pullRequest.merged) {
+        commitCount += node.pullRequest.commits.totalCount;
+        prCount++;
+      } else if (!showMerged) {
+        commitCount += node.pullRequest.commits.totalCount;
+        prCount++;
+      }
+    });
+    setCommits(commitCount);
+    setPR(prCount);
+  }, [contributions.nodes, showMerged]);
+
   return (
     <PRWrapper>
       <div className="name">
@@ -34,10 +49,9 @@ function PRRepo({ repository, contributions }) {
         </a>
       </div>
       <ul className="description">
-        {" "}
         {repository.description ? <li>{parse(repository.description)}</li> : null}
         <li className="stats">
-          Made {commits} commit(s) in {contributions.totalCount} Pull Request(s).
+          Made {commits} commit(s) in {pr} Pull Request(s).
         </li>
       </ul>
     </PRWrapper>

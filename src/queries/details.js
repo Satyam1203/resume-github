@@ -109,16 +109,17 @@ export const PUBLIC_USER_DETAILS = gql`
         totalCommitContributions
         totalIssueContributions
         totalPullRequestContributions
-        pullRequestContributionsByRepository(maxRepositories: 5) {
+        pullRequestContributionsByRepository(maxRepositories: 20) {
           repository {
             description
             nameWithOwner
             url
           }
-          contributions(orderBy: { direction: ASC }, first: 5) {
+          contributions(orderBy: { direction: ASC }, first: 20) {
             totalCount
             nodes {
               pullRequest {
+                merged
                 commits {
                   totalCount
                 }

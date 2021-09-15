@@ -82,7 +82,6 @@ function Resume({ titleColor }) {
       {data.user.contributionsCollection.totalPullRequestContributions && (
         <Contributions
           repoList={data.user.contributionsCollection.pullRequestContributionsByRepository}
-          prCount={data.user.contributionsCollection.totalPullRequestContributions}
           titleColor={titleColor}
         />
       )}

@@ -7,6 +7,7 @@ export default () => {
   const { config, setConfig } = useContext(ConfigContext);
   const [count, setCount] = useState(5);
   const [showMoreText, setShowMoreText] = useState(config?.contributions?.showMoreText || true);
+  const [showMerged, setShowMerged] = useState(config?.contributions?.showMerged || false);
 
   useEffect(() => {
     setConfig({ ...config, contributions: { ...config.contributions, count } });
@@ -17,6 +18,11 @@ export default () => {
     setConfig({ ...config, contributions: { ...config.contributions, showMoreText } });
     // eslint-disable-next-line
   }, [showMoreText]);
+
+  useEffect(() => {
+    setConfig({ ...config, contributions: { ...config.contributions, showMerged } });
+    // eslint-disable-next-line
+  }, [showMerged]);
 
   return (
     <WrapperDiv>
@@ -38,6 +44,15 @@ export default () => {
           type="checkbox"
           checked={showMoreText}
           onChange={(e) => setShowMoreText(e.target.checked)}
+        />
+      </label>
+      <br />
+      <label>
+        Show only merged PRs:
+        <input
+          type="checkbox"
+          checked={showMerged}
+          onChange={(e) => setShowMerged(e.target.checked)}
         />
       </label>
     </WrapperDiv>
