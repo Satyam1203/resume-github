@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import Navbar from "./components/Navbar";
@@ -13,14 +13,10 @@ function App() {
     <Router>
       <div className="App">
         <Navbar titleColor={titleColor} setTitleColor={setTitleColor} />
-        <Switch>
-          <Route path="/:username">
-            <Resume titleColor={titleColor} />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/:username" element={<Resume titleColor={titleColor} />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
       </div>
     </Router>
   );

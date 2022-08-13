@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import svg from "../../assets/github.png";
 import { HomeDesign, InputBox } from "./Home.style";
 
 function Home() {
   const [username, setUsername] = useState("");
-  const history = useHistory();
+  const history = useNavigate();
 
   const showResume = () => username.length && history.push(`/${username}`);
   return (
