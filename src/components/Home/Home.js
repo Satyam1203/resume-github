@@ -6,9 +6,9 @@ import { HomeDesign, InputBox } from "./Home.style";
 
 function Home() {
   const [username, setUsername] = useState("");
-  const history = useNavigate();
+  const navigate = useNavigate();
 
-  const showResume = () => username.length && history.push(`/${username}`);
+  const showResume = () => username.length && navigate(`/${username}`);
   return (
     <HomeDesign>
       <div className="form">
@@ -35,7 +35,7 @@ function Home() {
               placeholder="John_278"
             />
           </InputBox>
-          <button onClick={() => showResume()}>Generate</button>
+          <button title="button" onClick={() => showResume()}>Generate</button>
         </div>
       </div>
       <img src={svg} alt="graphics" />
