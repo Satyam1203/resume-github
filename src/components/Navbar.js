@@ -7,11 +7,13 @@ import logo from "../assets/resume.png";
 const Navigation = styled.nav`
   position: sticky;
   top: 0;
+  z-index: 1;
   background: #fff;
   padding: 1rem 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-color: #FFF;
   img {
     width: 40px;
     height: 40px;
