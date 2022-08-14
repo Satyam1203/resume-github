@@ -59,7 +59,7 @@ function Navbar({ titleColor, setTitleColor }) {
         <img src={logo} alt="logo" />
         <span>
           <h1>
-            <Link to="/">Github Resume Generator</Link>
+            <Link title="link" to="/">Github Resume Generator</Link>
           </h1>
         </span>
       </div>

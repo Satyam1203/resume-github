@@ -42,13 +42,13 @@ function Resume({ titleColor }) {
   if (loading) return <Loader />;
   if (error)
     return (
-      <div>
-        <p>Unexpected Error: Invalid Username or API error {console.log(error)}</p>
+      <div title="resume-block">
+        <p>Unexpected Error: Invalid Username or API error</p>
         <Link to="/">Go back</Link>
       </div>
     );
   return (
-    <Main id="resume">
+    <Main id="resume" title="resume-block">
       {/* {console.log(data)} */}
       <Introduction
         name={data.user.name}
