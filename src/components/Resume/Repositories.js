@@ -15,7 +15,7 @@ function Repositories({ repoList, username, titleColor }) {
     },
   } = useContext(ConfigContext);
 
-  if (!count) return null;
+  if (!count || !repoList?.length) return null;
 
   return (
     <Wrapper>
