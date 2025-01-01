@@ -15,7 +15,7 @@ import { ConfigContext } from "./";
 const Main = styled.div`
   color: #333;
   width: 800px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 2.5rem;
   min-height: 90vh;
   box-shadow: 1px 2px 3px 2px grey;
   padding: 2rem;

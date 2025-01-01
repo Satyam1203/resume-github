@@ -5,6 +5,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home/Home";
 import Resume from "./components/Resume";
+import FloatingFooter from "./components/Footer";
 
 function App() {
   const [titleColor, setTitleColor] = useState("#547bcb");
@@ -21,6 +22,7 @@ function App() {
             <Home />
           </Route>
         </Switch>
+        <FloatingFooter />
       </div>
     </Router>
   );
