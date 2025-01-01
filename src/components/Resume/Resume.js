@@ -79,7 +79,7 @@ function Resume({ titleColor }) {
         username={username}
         titleColor={titleColor}
       />
-      {data.user.contributionsCollection.totalPullRequestContributions && (
+      {data.user.contributionsCollection.totalPullRequestContributions > 0 && (
         <Contributions
           repoList={data.user.contributionsCollection.pullRequestContributionsByRepository}
           titleColor={titleColor}
