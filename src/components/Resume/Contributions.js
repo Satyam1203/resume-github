@@ -28,7 +28,7 @@ function Contributions({ repoList, titleColor }) {
   return (
     <Wrapper>
       <h2 style={{ color: titleColor || "" }}>Contributions</h2>
-      <p>(Pull requests)</p>
+      <p>(Pull requests - Last 12 months)</p>
       <div style={{ margin: "1rem 0 0 1rem" }}>
         {repositories.map((repo, i) => {
           if (count < i + 1) return null;
