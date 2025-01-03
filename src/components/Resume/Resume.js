@@ -56,6 +56,7 @@ function Resume({ titleColor }) {
         bio={data.user.bio}
         avatarUrl={data.user.avatarUrl}
         location={data.user.location}
+        company={data.user.company}
         createdAt={data.user.createdAt}
       />
       <Stats

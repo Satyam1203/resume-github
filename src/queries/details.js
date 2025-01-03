@@ -7,6 +7,7 @@ export const PUBLIC_USER_DETAILS = gql`
       avatarUrl
       createdAt
       name
+      company
       websiteUrl
       url
       twitterUsername

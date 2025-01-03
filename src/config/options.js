@@ -2,6 +2,7 @@ export default {
   intro: {
     bio: true,
     location: true,
+    company: false,
     joinedYear: false,
     avatar: true,
   },

@@ -7,6 +7,7 @@ export default () => {
   const { config, setConfig } = useContext(ConfigContext);
   const [showBio, setShowBio] = useState(config?.intro?.bio || true);
   const [showLocation, setShowLocation] = useState(config?.intro?.location || true);
+  const [showCompany, setShowCompany] = useState(config?.intro?.company || false);
   const [showJoinedYear, setShowJoinedYear] = useState(config?.intro?.joinedYear || false);
   const [showAvatar, setShowAvatar] = useState(config?.intro?.avatar || true);
 
@@ -19,6 +20,11 @@ export default () => {
     setConfig({ ...config, intro: { ...config.intro, location: showLocation } });
     // eslint-disable-next-line
   }, [showLocation]);
+  
+  useEffect(() => {
+    setConfig({ ...config, intro: { ...config.intro, company: showCompany } });
+    // eslint-disable-next-line
+  }, [showCompany]);
 
   useEffect(() => {
     setConfig({ ...config, intro: { ...config.intro, joinedYear: showJoinedYear } });
@@ -43,6 +49,14 @@ export default () => {
           type="checkbox"
           checked={showLocation}
           onChange={(e) => setShowLocation(e.target.checked)}
+        />
+      </label>
+      <label>
+        Show Company:
+        <input
+          type="checkbox"
+          checked={showCompany}
+          onChange={(e) => setShowCompany(e.target.checked)}
         />
       </label>
       <label>

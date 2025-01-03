@@ -39,7 +39,7 @@ const OverviewWrapper = styled.div`
   border-bottom: 1px solid var(--lightgrey);
 `;
 
-function Overview({ name, username, bio, avatarUrl, location, createdAt }) {
+function Overview({ name, username, bio, avatarUrl, location, company, createdAt }) {
   const { config } = useContext(ConfigContext);
   const date = new Date(createdAt).toUTCString().slice(8, 16);
 
@@ -52,6 +52,11 @@ function Overview({ name, username, bio, avatarUrl, location, createdAt }) {
         {config.intro.location && location && (
           <div className="location">
             <i className="fas fa-map-marker-alt"></i>&nbsp; {location}
+          </div>
+        )}
+        {config.intro.company && company && (
+          <div className="location">
+            <i className="fas fa-briefcase"></i>&nbsp; {company}
           </div>
         )}
         {config.intro.joinedYear && <div>On Github since {date}</div>}
