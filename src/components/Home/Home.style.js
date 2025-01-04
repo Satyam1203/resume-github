@@ -5,7 +5,7 @@ const HomeDesign = styled.div`
   justify-content: space-around;
   position: relative;
   align-items: center;
-  margin-top: 120px;
+  margin-top: 100px;
   h2 {
     font-size: 36px;
     color: #333;
