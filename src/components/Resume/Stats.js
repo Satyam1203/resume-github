@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import styled, { css } from "styled-components";
 
-import { Wrapper } from "./styles";
 import { ConfigContext } from "./";
+import { STATS } from "../../constants";
+import DragDropWrapper from "../common/DragDropWrapper";
 
 const Statistics = styled.div`
   display: flex;
@@ -67,7 +68,7 @@ function Stats({
   } = useContext(ConfigContext);
 
   return (
-    <Wrapper>
+    <DragDropWrapper id={STATS}>
       <h2 style={{ color: titleColor || "" }}>Stats</h2>
       <Statistics pills={pills} outlined={outlined}>
         <ul>
@@ -109,7 +110,7 @@ function Stats({
           here.
         </a>
       </p>
-    </Wrapper>
+    </DragDropWrapper>
   );
 }
 
