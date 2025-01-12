@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 
 import Repo from "./Repo";
-import { Wrapper } from "./styles";
 import { ConfigContext } from "./";
+import { REPOSITORIES } from "../../constants";
+import DragDropWrapper from "../common/DragDropWrapper";
 
 function isUserOwnerOfRepository(username, repo) {
   return repo.nameWithOwner.split("/")[0].toLowerCase() === username.toLowerCase();
@@ -18,7 +19,7 @@ function Repositories({ repoList, username, titleColor }) {
   if (!count || !repoList?.length) return null;
 
   return (
-    <Wrapper>
+    <DragDropWrapper id={REPOSITORIES}>
       <h2 style={{ color: titleColor || "" }}>Top Repositories</h2>
       <div style={{ margin: "1rem 0 0 1rem" }}>
         {repoList.map((repo, i) => {
@@ -41,7 +42,7 @@ function Repositories({ repoList, username, titleColor }) {
           );
         })}
       </div>
-    </Wrapper>
+    </DragDropWrapper>
   );
 }
 

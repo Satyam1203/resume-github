@@ -1,8 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 
-import { Wrapper } from "./styles";
 import PRRepo from "./PRRepo";
 import { ConfigContext } from "./";
+import { CONTRIBUTIONS } from "../../constants";
+import DragDropWrapper from "../common/DragDropWrapper";
 
 function Contributions({ repoList, titleColor }) {
   const [repositories, setRepositories] = useState(repoList);
@@ -26,7 +27,7 @@ function Contributions({ repoList, titleColor }) {
   if (!count) return null;
 
   return (
-    <Wrapper>
+    <DragDropWrapper id={CONTRIBUTIONS}>
       <h2 style={{ color: titleColor || "" }}>Contributions</h2>
       <p>(Pull requests - Last 12 months)</p>
       <div style={{ margin: "1rem 0 0 1rem" }}>
@@ -45,7 +46,7 @@ function Contributions({ repoList, titleColor }) {
       {showMoreText && repositories.length - count > 0 && (
         <div>and {repositories.length - count} more...</div>
       )}
-    </Wrapper>
+    </DragDropWrapper>
   );
 }
 

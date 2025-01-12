@@ -67,4 +67,8 @@ input[type="color"]::-moz-color-swatch {
     box-shadow: none;
     padding: 0 2rem;
   }
+
+  #resume .drag-grip {
+    display: none;
+  }
 }
