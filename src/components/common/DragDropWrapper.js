@@ -32,6 +32,7 @@ function DragDropWrapper({ children, ...props }) {
             onDrop={onDrop}
             {...props}
         >
+            <div class="drag-grip"><i class="fas fa-grip-vertical"></i></div>
             {children}
         </Wrapper>
     )
