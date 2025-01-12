@@ -6,6 +6,7 @@ import logo from "../assets/resume.png";
 
 const Navigation = styled.nav`
   position: sticky;
+  z-index: 2;
   top: 0;
   background: #fff;
   padding: 1rem 0;
